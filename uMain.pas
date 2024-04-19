@@ -257,10 +257,11 @@ begin
               end);
           end;
 
-          //enabling comboboxes for the first time
+          //calculate result value and enable comboboxes for the first time
           TThread.Synchronize(nil,
             procedure
             begin
+              Calculate;
               if not cbSrcCurrency.Enabled then cbSrcCurrency.Enabled := true;
               if not cbDstCurrency.Enabled then cbDstCurrency.Enabled := true;
             end);
@@ -284,7 +285,6 @@ end;
 procedure TfMain.UpdateTimerTimer(Sender: TObject);
 begin
   LoadCurrencyRates;
-  Calculate;
 end;
 
 procedure TfMain.edValueChangeTracking(Sender: TObject);
