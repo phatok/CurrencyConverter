@@ -305,12 +305,12 @@ procedure TfMain.FormClose(Sender: TObject; var Action: TCloseAction);
 var i : integer;
 begin
   //closing connection to db and freeing dynamically created objects
+  AddLineToLog('Exiting');
   FDConnection.Close;
   for i := 0 to cbSrcCurrency.Items.Count-1 do
   begin
     cbSrcCurrency.Items.Objects[i].Free;
   end;
 end;
-
 
 end.
