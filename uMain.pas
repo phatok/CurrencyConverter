@@ -83,14 +83,11 @@ begin
     TFile.AppendAllText(TPath.Combine(TPath.GetDocumentsPath, 'logfile.txt'),
                         '[' + DateTimeToStr(Now) + ']'#9 + Str + #13#10);
   end);
-
- TPath.Combine(System.IOUtils.tpath.getdocumentspath,'logfile.txt')
 end;
 
 procedure TfMain.Calculate;
 var InValue, EURValue, ResultValue, SrcCurrencyRate, DstCurrencyRate : Double;
     SrcCurrencyCode, DstCurrencyCode : string;
-
 begin
   try
     //if input value is empty or space(s) - nothing to do - exit
