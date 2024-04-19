@@ -256,6 +256,7 @@ begin
 
               end);
           end;
+          AddLineToLog('Ok');
 
           //calculate result value and enable comboboxes for the first time
           TThread.Synchronize(nil,
@@ -265,8 +266,6 @@ begin
               if not cbSrcCurrency.Enabled then cbSrcCurrency.Enabled := true;
               if not cbDstCurrency.Enabled then cbDstCurrency.Enabled := true;
             end);
-
-          AddLineToLog('Ok');
         finally
           JSONObject.Free;
         end;
