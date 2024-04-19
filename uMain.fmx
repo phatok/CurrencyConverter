@@ -1,0 +1,87 @@
+object fMain: TfMain
+  Left = 0
+  Top = 0
+  Caption = 'Currency converter'
+  ClientHeight = 486
+  ClientWidth = 283
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  object cbSrcCurrency: TComboBox
+    Anchors = [akLeft, akTop, akRight]
+    Enabled = False
+    Position.X = 24.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 234.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    OnChange = cbSrcCurrencyChange
+  end
+  object cbDstCurrency: TComboBox
+    Anchors = [akLeft, akTop, akRight]
+    Enabled = False
+    Position.X = 24.000000000000000000
+    Position.Y = 98.000000000000000000
+    Size.Width = 234.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    OnChange = cbDstCurrencyChange
+  end
+  object edValue: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akTop, akRight]
+    TabOrder = 2
+    Text = '1'
+    Position.X = 24.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 234.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    OnChangeTracking = edValueChangeTracking
+  end
+  object lbResult: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 314.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.WordWrap = False
+    Text = '0.00'
+    TabOrder = 9
+  end
+  object HTTP: TNetHTTPClient
+    UserAgent = 'Embarcadero URI Client/1.0'
+    Left = 24
+    Top = 176
+  end
+  object FDConnection: TFDConnection
+    Left = 24
+    Top = 224
+  end
+  object FDQuery: TFDQuery
+    Connection = FDConnection
+    Left = 24
+    Top = 272
+  end
+  object FDTable: TFDTable
+    Connection = FDConnection
+    Left = 24
+    Top = 320
+  end
+  object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
+    Left = 24
+    Top = 368
+  end
+  object UpdateTimer: TTimer
+    Enabled = False
+    Interval = 30000
+    OnTimer = UpdateTimerTimer
+    Left = 24
+    Top = 416
+  end
+end
